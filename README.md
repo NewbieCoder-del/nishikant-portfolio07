@@ -20,6 +20,7 @@ CSS3 – the style, the drip, the vibe
 JavaScript – for the fun buttons and dark mode
 Ionicons – shiny little icons that make things look legit
 Google Fonts (Inter & Montserrat) – because good fonts = instant credibility
-##folder structure nishikant-portfolio/ │ ├── index.html # the main file, aka “the face” ├── style.css # where the magic styling happens ├── script.js # dark mode + burger menu brains ├── avatar.jpg # me but 2D └── README.md # you’re reading it right now :)
+##folder structure nishikant-portfolio/ │ 
+├── index.html # the main file, aka “the face” ├── style.css # where the magic styling happens ├── script.js # dark mode + burger menu brains ├── avatar.jpg # me but 2D └── README.md # you’re reading it right now :)
 
 🗂 Folder Setup
