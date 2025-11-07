@@ -1,0 +1,511 @@
+/* okay let’s start with some colors and stuff i’ll probably change later 😅 */
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-light: #f6f6f7;
+  --text-dark: #fefefe;
+  --text-light: #000;
+  --accent: #f7b731;
+  --transition: 0.4s ease;
+}
+
+/* removing all that annoying default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* smooth scroll cause we fancy like that */
+html {
+  scroll-behavior: smooth;
+}
+
+/* basic setup – dark mode gang 😎 */
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  line-height: 1.7;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* making headings look bold and serious */
+h1, h2, h3, .logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* navbar, aka the fancy black strip on top */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(22, 22, 22, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 20px 20px;
+  padding: 10px 5%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition: background var(--transition);
+}
+
+/* keeping stuff inside navbar in line */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* my name, but make it ✨ aesthetic ✨ */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* for when i eventually change the color… probably won’t */
+.logo span {
+  color: var(--text-dark);
+}
+
+/* navbar links — you click them, magic happens */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: max-height var(--transition), opacity var(--transition);
+}
+
+/* making links not ugly */
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+/* hover so users feel like they did something */
+.nav-links a:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* the magic button that switches between light/dark mode */
+.theme-btn {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* spinny glow button 😍 */
+.theme-btn:hover {
+  background: var(--accent);
+  color: #000;
+  transform: rotate(20deg);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* burger menu – not the food one 🍔 */
+.menu-toggle {
+  display: none;
+}
+
+/* mobile view (aka panic mode 😭) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: rgba(27, 27, 27, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    width: 220px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  /* when you finally click that burger 🍔 */
+  .nav-links.active {
+    max-height: 400px;
+    opacity: 1;
+    padding: 15px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+    color: #eee;
+  }
+
+  #theme-toggle {
+    margin-left: 10px;
+  }
+}
+
+/* daytime mode for people who fear the dark */
+body.light .navbar {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* making light mode readable */
+body.light .nav-links a {
+  color: #111;
+  font-weight: 500;
+}
+
+/* because even light mode deserves hover love */
+body.light .nav-links a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* light mode icons looking fresh */
+body.light .menu-toggle,
+body.light .theme-btn {
+  color: var(--accent);
+}
+
+/* general section stuff – every big block basically */
+.section {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* about me – where i brag a bit */
+#about .text-content {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+}
+
+#about h1 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.text-content p {
+  color: #ccc;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+/* my face (or avatar) goes here */
+.image-content {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+/* round pic cause circles make everything fancier */
+.image-content img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* skills section aka the “look what i can do” area */
+.skills h1 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* grid layout cause flex wasn’t enough */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* cute skill cards */
+.skill-card {
+  background: #1b1b1b;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* hover = instant confidence boost */
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: #2b2b2b;
+}
+
+.skill-card ion-icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.skill-card h3 {
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.skill-card p {
+  color: #aaa;
+}
+
+/* making the heading look centered and professional */
+.skill-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skill-head h3 {
+  color: #ccc;
+  font-weight: 400;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* when the sun’s out, text gets darker */
+body.light .skill-head h3 {
+  color: #111;
+}
+
+/* project time 🚀 */
+.projects h1 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* grid for projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* fancy project boxes */
+.project-card {
+  background: #1b1b1b;
+  padding: 1.5rem;
+  border-radius: 20px;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* hover to flex on recruiters */
+.project-card:hover {
+  background: #2b2b2b;
+  transform: translateY(-5px);
+}
+
+/* gold titles look cool */
+.project-card h2 {
+  color: var(--accent);
+}
+
+.project-card p {
+  color: #aaa;
+}
+
+/* contact section – where people actually say hi (hopefully) */
+.contact h1 {
+  color: var(--accent);
+}
+
+/* box for form and info */
+.contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  background: #1b1b1b;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* form setup */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* input boxes where people pretend to type */
+.contact-form input,
+.contact-form textarea {
+  background: #1c1c1c;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 15px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* big yellow button of hope */
+.contact-form button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* slightly shinier hope button */
+.contact-form button:hover {
+  background: #ffd76d;
+}
+
+/* contact info – where I drop my socials like a pro */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #bbb;
+  font-size: 1rem;
+  gap: 1rem;
+}
+
+.contact-info ion-icon {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+/* making the contact section bright for light mode people */
+body.light .contact-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light .contact-info {
+  color: #111;
+}
+
+/* footer – the “thanks for scrolling” area */
+.footer {
+  background: #161616;
+  padding: 1.5rem 5%;
+  color: #ccc;
+  border-top: 1px solid #222;
+  border-radius: 20px 20px 0 0;
+}
+
+/* footer layout */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* socials cause we’re all online anyway */
+.socials a {
+  color: var(--accent);
+  margin: 0 0.4rem;
+  font-size: 1.4rem;
+  transition: color 0.3s;
+}
+
+/* hover = attention */
+.socials a:hover {
+  color: #ffd76d;
+}
+
+/* light mode stuff – less goth, more happy */
+body.light {
+  background: #f6f6f7;
+  color: #000;
+}
+
+/* text color fix for light mode */
+body.light .text-content p,
+body.light p,
+body.light strong {
+  color: #111;
+}
+
+/* cards and form boxes for light mode */
+body.light .skill-card,
+body.light .project-card,
+body.light .contact-form input,
+body.light .contact-form textarea {
+  background: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* hover color for light mode */
+body.light .skill-card:hover,
+body.light .project-card:hover {
+  background: #f7f7f7;
+}
+
+/* lighter, friendlier footer */
+body.light .footer {
+  background: #f1f1f1;
+  color: #111;
+}
+
+/* fixing skill cards for light mode – again */
+body.light .skill-card h3 {
+  color: #111; 
+}
+
+body.light .skill-card p {
+  color: #333; 
+}
+
+body.light .skill-card ion-icon {
+  color: var(--accent); 
+}
+
+body.light .skill-card {
+  background: #fafafa; 
+  border: 1px solid #ddd;
+}
+
+/* one last hover glow for good vibes */
+body.light .skill-card:hover {
+  background: #f0f0f0;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

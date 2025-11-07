@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishikant | Portfolio</title>
+
+  <!-- adding google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- linking css file -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ionicons for icons -->
+  <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <!-- top navigation bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">Nishikant | Portfolio</div>
+
+      <!-- hamburger icon for mobile view -->
+      <button class="menu-toggle" id="menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <!-- navigation links -->
+      <nav class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- button for light/dark mode -->
+      <button id="theme-toggle" class="theme-btn">
+        <ion-icon name="moon-sharp" id="theme-icon"></ion-icon>
+      </button>
+    </div>
+  </header>
+
+  <!-- about section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="text-content">
+        <h1>About Me</h1>
+        <p>
+          Hi, I’m <strong>Nishikant</strong> — a third-semester Mechanical Engineering student passionate about technology, 
+          design, and problem-solving. I enjoy building creative and efficient projects that merge engineering with innovation.
+        </p>
+        <p>
+          My skills include <strong>HTML, CSS, JavaScript</strong>, and basic knowledge of <strong>Python and C</strong>. 
+          I’m interested in combining mechanical systems with modern programming and automation concepts.
+        </p>
+      </div>
+
+      <!-- image on the right side -->
+      <div class="image-content">
+        <img src="avatar.jpg" alt="Nishikant's Avatar" />
+      </div>
+    </div>
+  </section>
+
+  <!-- skills section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="skill-head">
+        <h1>My Skills</h1>
+        <h3>Here are some of the technologies and tools I’m learning and using:</h3>
+      </div>
+
+      <!-- skill cards -->
+      <div class="skills-grid">
+        <div class="skill-card"><ion-icon name="logo-html5"></ion-icon><h3>HTML</h3><p>Building structured layouts.</p></div>
+        <div class="skill-card"><ion-icon name="logo-css3"></ion-icon><h3>CSS</h3><p>Designing responsive interfaces.</p></div>
+        <div class="skill-card"><ion-icon name="logo-javascript"></ion-icon><h3>JavaScript</h3><p>Adding interactivity.</p></div>
+        <div class="skill-card"><ion-icon name="logo-python"></ion-icon><h3>Python</h3><p>Problem-solving and automation.</p></div>
+        <div class="skill-card"><ion-icon name="code-slash-outline"></ion-icon><h3>C Language</h3><p>Learning programming logic.</p></div>
+        <div class="skill-card"><ion-icon name="cog-outline"></ion-icon><h3>Mechanical Design</h3><p>Applying CAD and mechanics.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- projects section -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <h1>My Projects</h1>
+      <div class="project-grid">
+
+        <!-- project 1 -->
+        <div class="project-card">
+          <h2>🏋️ Gym Website</h2>
+          <p>
+            A sleek, fully responsive gym website featuring workout plans,
+            membership forms, and modern UI/UX elements. Built using 
+            <strong>HTML, CSS, and JavaScript</strong>.
+          </p>
+        </div>
+
+        <!-- project 2 -->
+        <div class="project-card">
+          <h2>🛠️ Mini CAD Design Project</h2>
+          <p>
+            Designed a 3D mechanical assembly using CAD tools, focusing on precision and realistic part motion.
+          </p>
+        </div>
+
+        <!-- project 3 -->
+        <div class="project-card">
+          <h2>💻 Personal Portfolio Website</h2>
+          <p>
+            Built a modern, responsive personal portfolio using HTML, CSS, and JavaScript.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- contact section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h1>Contact Me</h1>
+      <p>If you’d like to connect or collaborate, feel free to send me a message!</p>
+
+      <div class="contact-box">
+        <!-- contact form -->
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+
+        <!-- contact info (email, phone, location) -->
+        <div class="contact-info">
+          <p><ion-icon name="mail-outline"></ion-icon> vnishikant1@gmail.com</p>
+          <p><ion-icon name="call"></ion-icon> 9620878248</p>
+          <p><ion-icon name="location-outline"></ion-icon> Bangalore, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2025 Nishikant | Built with ❤️ using HTML, CSS & JS</p>
+
+      <!-- social media links -->
+      <div class="socials">
+        <a href="https://github.com/NewbieCoder-del"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- linking javascript file (placed at bottom for better load) -->
+  <script src="script.js"></script>
+</body>
+</html>
